@@ -1,0 +1,11 @@
+<div *ngIf="loading">Cargando tarjetas...</div>
+<div *ngIf="error">{{ error }}</div>
+
+<div class="cards" *ngIf="!loading && !error">
+  <div class="card" *ngFor="let c of cards">
+    <h3>{{ c.nameProduct }}</h3>
+    <p *ngIf="c.numberProduct">{{ c.numberProduct }}</p>
+    <p *ngIf="c.balanceProduct">{{ c.balanceProduct }}</p>
+    <p *ngIf="c.detaildProduct">{{ c.detaildProduct }}</p>
+  </div>
+</div>
