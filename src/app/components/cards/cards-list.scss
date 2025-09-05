@@ -1,0 +1,19 @@
+.snap {
+  overflow-x: auto;
+}
+.snap-track {
+  display: flex;
+  gap: 12px;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 12px;
+}
+.snap-item {
+  flex: 0 0 280px; 
+  scroll-snap-align: start;
+}
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.05);
+}

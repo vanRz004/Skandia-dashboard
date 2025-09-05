@@ -1,0 +1,29 @@
+<div class="home-wrapper">
+  <app-navbar></app-navbar>
+  <div class="home-content">
+    <section class="hero">
+      <div class="hero-content">
+        <h3>¡Tu objetivo ha sido agregado exitosamente!</h3>
+        <h4>¡Te hemos enviado un correo con la notificación!</h4>
+        <div class="goal-card">
+          <app-goal-card
+            [title]="'Conocer mi sobrino'"
+            [category]="'Bienestar'"
+            [date]="'Diciembre/2022'"
+            [goal]="6000000"
+            [actual]="0"
+          >
+          </app-goal-card>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resto del contenido que sí hace scroll -->
+    <section class="main-content">
+      <h3>¡Vamos por esos $6.000.000 para Conocer mi sobrino!</h3>
+      <div class="cards">
+        <!-- aquí tus cards de productos -->
+      </div>
+    </section>
+  </div>
+</div>

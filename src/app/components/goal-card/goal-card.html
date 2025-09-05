@@ -1,0 +1,32 @@
+<div class="goal-card">
+  <div class="card-header">
+    <div>
+      <h3>{{ title }}</h3>
+      <p class="category">Categoría: {{ category }}</p>
+    </div>
+    <a href="#" class="link">Revisar objetivo</a>
+  </div>
+
+  <div class="card-body">
+    <div class="row">
+      <div class="item">
+        <span class="label">En esta fecha:</span>
+        <span class="pill pill-blue">{{ date }}</span>
+      </div>
+      <div class="item">
+        <span class="label">Lograrás:</span>
+        <span class="pill pill-gold">{{ goal | currency:'COP':'symbol-narrow':'1.0-0' }}</span>
+      </div>
+      <div class="item">
+        <span class="label">Ya cuentas con:</span>
+        <span class="pill pill-green">{{ actual | currency:'COP':'symbol-narrow':'1.0-0' }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-footer">
+    <span class="check">✔</span>
+    <a href="#" class="progress-link">¡Asocia productos para monitorear su progreso!</a>
+  </div>
+  <img src="logo/mask.png" alt="decor" class="decor" />
+</div>

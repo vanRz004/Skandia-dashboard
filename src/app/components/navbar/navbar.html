@@ -1,0 +1,77 @@
+<nav class="navbar">
+  <div class="navbar-container">
+    <div class="navbar-left">
+      <button class="btn-menu" (click)="toggleSidebar()">=</button>
+
+      <a routerLink="/" class="brand">
+        <img loading="lazy" src="logo/skandia.svg" alt="logo" class="brand-logo" />
+      </a>
+      <span class="brand-title">Plan Financiero Digital - FPX</span>
+    </div>
+
+    <div class="navbar-links">
+      <ul class="nav-list">
+        <li>
+          <a class="nav-item" href="#">
+            <img src="logo/Happy.svg" class="icon-20" alt="" />
+            <span>Tu Financial Planner</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-item" href="#">
+            <img src="logo/hand3.svg" class="icon-20" alt="" />
+            <span>Aportes</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-item" href="#">
+            <img src="logo/comp_faq.svg" class="icon-20" alt="" />
+            <span>FAQ</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="sidebar" [class.open]="isSidebarOpen" [class.collapsed]="!isSidebarOpen">
+  <ul class="sidebar-list">
+    <li>
+      <a routerLink="/" routerLinkActive="active" class="sidebar-item">
+        <img src="logo/home.svg" alt="home" class="icon-20" />
+        <span *ngIf="isSidebarOpen">Inicio</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/contratos" routerLinkActive="active" class="sidebar-item">
+        <img src="logo/contract.svg" *ngIf="isSidebarOpen" alt="contratos" class="icon-20" />
+        <span *ngIf="isSidebarOpen">Contratos</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/acciones" routerLinkActive="active" class="sidebar-item">
+        <img src="logo/chart.svg" *ngIf="isSidebarOpen" alt="acciones" class="icon-20" />
+        <span *ngIf="isSidebarOpen">Acciones</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/objetivos" routerLinkActive="active" class="sidebar-item">
+        <img src="logo/target.svg" *ngIf="isSidebarOpen" alt="objetivos" class="icon-20" />
+        <span *ngIf="isSidebarOpen">Objetivos</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/herramientas" routerLinkActive="active" class="sidebar-item">
+        <img src="logo/tools.svg" *ngIf="isSidebarOpen" alt="herramientas" class="icon-20" />
+        <span *ngIf="isSidebarOpen">Herramientas</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/soporte" routerLinkActive="active" class="sidebar-item">
+        <img src="logo/support.svg" *ngIf="isSidebarOpen" alt="soporte" class="icon-20" />
+        <span *ngIf="isSidebarOpen">Servicio al cliente</span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<div class="overlay" *ngIf="isSidebarOpen" (click)="toggleSidebar()"></div>

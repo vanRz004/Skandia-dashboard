@@ -1,8 +1,6 @@
 import { Routes } from '@angular/router';
-
-import { CardsListComponent } from './features/cards/components/cards-list/cards-list';
-
+import { HomeComponent } from './pages/home/home'
 export const routes: Routes = [
-  { path: '', component: CardsListComponent },
+  { path: '', component: HomeComponent },
   { path: '**', redirectTo: '' }
 ];

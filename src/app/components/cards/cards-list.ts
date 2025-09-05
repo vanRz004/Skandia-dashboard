@@ -6,9 +6,9 @@ import { Card } from '../../data-access/card.model';
 @Component({
   selector: 'app-cards-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule],         
   templateUrl: './cards-list.html',
-  styleUrl: './cards-list.scss'
+  styleUrls: ['./cards-list.scss']                  
 })
 export class CardsListComponent implements OnInit {
   private cardsService = inject(CardsService);
@@ -19,14 +19,8 @@ export class CardsListComponent implements OnInit {
 
   ngOnInit() {
     this.cardsService.getCards().subscribe({
-      next: (data) => {
-        this.cards = data;
-        this.loading = false;
-      },
-      error: () => {
-        this.error = 'Error al cargar tarjetas 😿';
-        this.loading = false;
-      }
+      next: (data) => { this.cards = data; this.loading = false; },
+      error: () => { this.error = 'Error al cargar tarjetas '; this.loading = false; }
     });
   }
 }
