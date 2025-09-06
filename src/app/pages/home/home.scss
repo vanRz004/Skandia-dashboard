@@ -1,40 +1,106 @@
 :host {
   display: block;
-  height: 100vh;
+  min-height: 100dvh;
   width: 100%;
 }
 
-h3 span {
+:root {
+  --nav-h: 56px;
+  --sidebar-w: 260px;
+  --card-overlap: 110px;
+}
+
+.main-content {
+  padding-left: var(--sidebar-w);
+  padding-top: var(--nav-h);
+  padding-right: 24px;
+  padding-bottom: 24px;
+  background: #f7f7f900;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: calc(var(--card-overlap) + 24px);
+}
+
+h4 span {
   color: #FE9200;
 }
 
+h3 {
+  font-weight: 500;
+}
+
+.headline {
+  margin: 35px 0 8px;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.headline span {
+  color: #FE9200;
+}
+
+.subtitle {
+  margin: 0 0 8px;
+  color: #6b7280;
+}
+
+.cta-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+}
+
+.question {
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 6px;
+  padding: 2px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .08);
+}
+
 .home-wrapper {
-  min-height: 100%;
-  min-width: 100%;
- background: url('/backgrounds/sky.png') no-repeat center center fixed;
-  background-size: cover;}
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: url('/backgrounds/sky.png') no-repeat center center fixed;
+  background-size: cover;
+}
 
 .home-content {
-  margin-top: 56px;
-  margin-left: 60px;
-  
+  flex: 1 1 auto;
+  box-sizing: border-box;
+}
+
+app-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .hero {
-  position: relative;                         
+  position: relative;
   background: url('/backgrounds/NOCHE.jpg') no-repeat center top;
   background-size: cover;
-  background-attachment: fixed;
-  height: 320px;
+  background-attachment: scroll;
+  min-height: 320px;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: visible;
+  padding: 32px 16px;
+  padding-bottom: calc(var(--card-overlap) + 24px);
 }
 
 .hero-content {
-  display: flex;                             
+  display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 6px;
   text-align: center;
   color: #fff;
 }
@@ -42,29 +108,72 @@ h3 span {
 .goal-card {
   position: absolute;
   left: 50%;
-  bottom: 0;
-  transform: translate(-50%, 50%);
-  z-index: 2;                
+  top: 70%;
+  transform: translateX(-50%);
+  z-index: 2;
 }
 
-
 .main-content {
-  padding: 96px 24px 24px;                 
+  padding: 96px 24px 24px;
   background: #f7f7f900;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-top: calc(var(--card-overlap) + 24px);
   align-items: center;
 }
 
 .goal-card app-goal-card {
   display: block;
-  box-shadow: 0 12px 30px rgba(0,0,0,.12);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .12);
   border-radius: 12px;
 }
 
-@media (max-width: 768px) {
-  .home-content { margin-left: 0; }
-  .hero { height: 280px; }
-  .main-content { padding-top: 80px; }
+.button-assoc {
+  background: #E2E2E2;
+  color: #333;
+  font-weight: 600;
+  font-size: 14px;
+  border: none;
+  border-radius: 9999px;
+  padding: 10px 24px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.button-assoc:hover {
+  background: #d4d4d4;
+}
+
+
+.button-assoc:active {
+  transform: scale(0.97);
+}
+
+app-footer {
+  z-index: 1;
+}
+
+@media (max-width: 1200px) {
+  :root {
+    --card-overlap: 80px;
+  }
+}
+
+@media (max-width: 992px) {
+  .hero {
+    padding-bottom: 24px;
+  }
+
+  .goal-card {
+    position: static;
+    transform: none;
+    margin-top: -40px;
+  }
+
+  .main-content {
+    margin-top: 24px;
+  }
 }

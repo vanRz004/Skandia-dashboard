@@ -1,5 +1,6 @@
 <div class="home-wrapper">
   <app-navbar></app-navbar>
+
   <div class="home-content">
     <section class="hero">
       <div class="hero-content">
@@ -12,30 +13,33 @@
             [date]="'Diciembre/2022'"
             [goal]="6000000"
             [actual]="0"
-          >
-          </app-goal-card>
+          ></app-goal-card>
         </div>
       </div>
     </section>
 
     <section class="main-content">
-      <h4>
+      <h4 class="headline">
         ¡Vamos por esos
-        <span>{{ inversionPunto }}</span>
+        <span>${{ inversionPunto }}</span>
         para
         <span>{{ inversionNombre }}</span
         >!
       </h4>
-      <h3>
-        ¡A través de nuestrros productos y rendimientos podremos lograrlo!
-      </h3>
-      <h3>
-        Asocia tus pproductos o adquiere uno nuevo
-      </h3>
+
+      <p class="subtitle">¡A través de nuestros productos y rendimientos podremos lograrlo!</p>
+
+      <div class="cta-row">
+        <strong>Asocia tus productos o adquiere uno nuevo.</strong>
+        <img class="question" src="logo/question.svg" alt="Ayuda" />
+      </div>
       <div class="cards">
         <app-cards-list></app-cards-list>
       </div>
+
+      <button class="button-assoc">Asociar a objetivo</button>
     </section>
   </div>
-   <app-footer></app-footer>
+
+  <app-footer></app-footer>
 </div>

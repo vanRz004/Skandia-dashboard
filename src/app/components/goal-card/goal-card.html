@@ -1,10 +1,11 @@
-<div class="goal-card">
+<div class="goal-card" role="region" aria-label="Resumen de objetivo">
   <div class="card-header">
     <div>
       <h3>{{ title }}</h3>
       <p class="category">Categoría: {{ category }}</p>
     </div>
-    <a href="#" class="link">Revisar objetivo</a>
+
+    <button class="link-btn" type="button">Revisar objetivo</button>
   </div>
 
   <div class="card-body">
@@ -13,20 +14,25 @@
         <span class="label">En esta fecha:</span>
         <span class="pill pill-blue">{{ date }}</span>
       </div>
+
       <div class="item">
         <span class="label">Lograrás:</span>
-        <span class="pill pill-gold">{{ goal | currency:'COP':'symbol-narrow':'1.0-0' }}</span>
+        <span class="pill pill-gold"> ${{ goal }} </span>
       </div>
+
       <div class="item">
         <span class="label">Ya cuentas con:</span>
-        <span class="pill pill-green">{{ actual | currency:'COP':'symbol-narrow':'1.0-0' }}</span>
+        <span class="pill pill-green"> ${{ actual }} </span>
       </div>
     </div>
   </div>
 
   <div class="card-footer">
-    <span class="check">✔</span>
-    <a href="#" class="progress-link">¡Asocia productos para monitorear su progreso!</a>
+    <span class="check" aria-hidden="true">✔</span>
+    <a class="progress-link" routerLink="/herramientas"
+      >¡Asocia productos para monitorear su progreso!</a
+    >
   </div>
-  <img src="logo/mask.png" alt="decor" class="decor" />
+
+  <img src="logo/mask.png" alt="" class="decor" aria-hidden="true" />
 </div>

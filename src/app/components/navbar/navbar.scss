@@ -3,15 +3,15 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000; 
+  z-index: 1000;
   background: #fff;
   border-bottom: 1px solid #e5e7eb;
   padding: 0 1.5rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,.08);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .08);
 }
 
 .navbar-container {
-  height: 56px; 
+  height: 56px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -24,8 +24,18 @@
   gap: 10px;
 }
 
-.brand-logo { height: 28px; }
-.brand-title { font-weight: 600; color: #1f2937; }
+.brand-logo {
+  height: 28px;
+}
+
+.brand-title {
+  font-weight: 600;
+  color: #1f2937;
+  font-size: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
 .btn-menu {
   background: transparent;
@@ -33,33 +43,52 @@
   cursor: pointer;
 }
 
-.icon-24 { width: 24px; height: 24px; }
-.icon-20 { width: 20px; height: 20px; margin-right: 6px; }
+.icon-24 {
+  width: 24px;
+  height: 24px;
+}
 
-.navbar-links { display: flex; align-items: center; justify-content: end; }
+.icon-20 {
+  width: 20px;
+  height: 20px;
+  margin-right: 6px;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
 .nav-list {
   display: flex;
   gap: 10px;
-  margin: 0; padding: 0; list-style: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
+
 .nav-item {
-  display: flex; 
-  align-items: center; 
+  display: flex;
+  align-items: center;
   gap: 6px;
   padding: 10px 12px;
   color: #00c83c;
   text-decoration: none;
   border-radius: 8px;
-  &:hover { background: rgba(0,200,60,0.08); }
+
+  &:hover {
+    background: rgba(0, 200, 60, 0.08);
+  }
 }
 
 .sidebar {
   position: fixed;
-  top: 56px; 
+  top: 56px;
   left: 0;
   height: calc(100% - 56px);
   background: #E2E2E2;
-  box-shadow: 2px 0 10px rgba(0,0,0,.1);
+  box-shadow: 2px 0 10px rgba(0, 0, 0, .1);
   transition: width 0.3s ease;
   overflow: hidden;
   z-index: 900;
@@ -73,7 +102,7 @@
 }
 
 .sidebar.collapsed {
-  width: 60px; 
+  width: 60px;
 }
 
 .sidebar-header {
@@ -111,7 +140,7 @@
   }
 
   &.active {
-    background: #00C83C;        
+    background: #00C83C;
     border-left: 4px solid #00c83c;
     font-weight: 400;
     color: #eeeeee;
@@ -121,10 +150,56 @@
 
 .overlay {
   position: fixed;
-  top: 56px;         
+  top: 56px;
   left: 0;
   width: 100%;
   height: calc(100% - 56px);
-  background: rgba(0,0,0,.3);
+  background: rgba(0, 0, 0, .3);
   z-index: 800;
+}
+
+@media (max-width: 992px) {
+
+  .navbar-links {
+    display: none;
+  }
+
+  .brand-logo {
+    height: 26px;
+  }
+
+  .brand-title {
+    font-size: 0.95rem;
+    max-width: 40vw;
+  }
+
+  .sidebar {
+    width: 260px !important;
+    transform: translateX(-100%);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  :root {
+    --sidebar-w: 0px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .brand-logo {
+    height: 15px;
+  }
+
+  .brand-title {
+    font-size: .7rem;
+    max-width: 55vw;
+  }
+
+  .btn-menu {
+    width: 32px;
+    height: 32px;
+  }
 }
