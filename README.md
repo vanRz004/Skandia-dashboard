@@ -22,8 +22,6 @@ For more information on using the Angular CLI, including detailed command refere
 ## Desiciones Técnicas 
 >Estructura del proyecto: Organización modular con componentes standalone y separación clara de servicios, modelos y vistas.
 
->Calidad del código: Uso de buenas prácticas de Angular, tipado fuerte en TypeScript y convenciones consistentes.
-
 >Consumo de APIs: Implementado con HttpClient centralizando la lógica en servicios reutilizables.
 
 >Estructura de estilos: Estilos modulares con SCSS, variables CSS y media queries para un diseño responsive.
