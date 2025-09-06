@@ -1,5 +1,6 @@
 <div *ngIf="loading">Cargando tarjetas...</div>
 <div *ngIf="error">{{ error }}</div>
+<!-- Carrusel principal: solo se muestra si no hay carga ni error -->
 
 <div class="carousel-wrap" *ngIf="!loading && !error">
 
@@ -48,6 +49,10 @@
     </div>
   </div>
 </div>
+
+
+<!-- Panel de recomendaciones: se muestra al abrir promoOpen -->
+
 <section class="reco-panel" *ngIf="promoOpen">
   <button class="close" (click)="togglePromo()" aria-label="Cerrar">✖</button>
 
@@ -63,12 +68,12 @@
         productos para <span class="hl">Conocer sobrino!</span>
       </h2>
     </div>
-
+    <!-- Tarjeta destacada con detalle de producto -->
     <article class="featured-card">
       <div class="media">
         <img src="backgrounds/dogy.png" alt="Producto recomendado" />
         <span class="pill">Ahorro e inversión</span>
-        <button class="fav" aria-label="Guardar favorito">❤</button>
+        <button class="fav" aria-label="favorito">❤</button>
       </div>
 
       <div class="info">

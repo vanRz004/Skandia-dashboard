@@ -7,6 +7,7 @@
         <h3>¡Tu objetivo ha sido agregado exitosamente!</h3>
         <h4>¡Te hemos enviado un correo con la notificación!</h4>
         <div class="goal-card">
+          <!-- Card dinámica con la información del objetivo seleccionado -->
           <app-goal-card
             [title]="'Conocer mi sobrino'"
             [category]="'Bienestar'"
@@ -17,6 +18,7 @@
         </div>
       </div>
     </section>
+    <!-- Sección principal con detalles e incentivos -->
 
     <section class="main-content">
       <h4 class="headline">
@@ -34,6 +36,7 @@
         <img class="question" src="logo/question.svg" alt="Ayuda" />
       </div>
       <div class="cards">
+        <!-- Listado dinámico de tarjetas (cards) obtenidas del servicio -->
         <app-cards-list></app-cards-list>
       </div>
 
