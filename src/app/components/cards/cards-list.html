@@ -1,11 +1,94 @@
 <div *ngIf="loading">Cargando tarjetas...</div>
 <div *ngIf="error">{{ error }}</div>
 
-<div class="cards" *ngIf="!loading && !error">
-  <div class="card" *ngFor="let c of cards">
-    <h3>{{ c.nameProduct }}</h3>
-    <p *ngIf="c.numberProduct">{{ c.numberProduct }}</p>
-    <p *ngIf="c.balanceProduct">{{ c.balanceProduct }}</p>
-    <p *ngIf="c.detaildProduct">{{ c.detaildProduct }}</p>
+<div class="carousel-wrap" *ngIf="!loading && !error">
+
+  <button class="nav-btn left" (click)="scroll(-1)" aria-label="Anterior">‹</button>
+  <button class="nav-btn right" (click)="scroll(1)" aria-label="Siguiente">›</button>
+
+  <div class="carousel" #viewport>
+    <div class="track" #track>
+      <article
+        class="card"
+        *ngFor="let c of cards; let i = index"
+        [style.borderBottomColor]="accent(i)"
+      >
+        <label class="check">
+          <input type="checkbox" />
+          <span></span>
+        </label>
+
+        <h3 class="title">{{ c.nameProduct }}</h3>
+        <p class="muted">#{{ c.numberProduct }}</p>
+
+        <hr class="divider" />
+
+        <div class="amount-block">
+          <span class="label">Tu ahorro actual:</span>
+          <div class="amount">${{ c.balanceProduct }}</div>
+        </div>
+
+        <div class="note">
+          <div class="note-icon">
+            <img [src]="getIcon(i)" [alt]="c.nameProduct + ' icono'" />
+          </div>
+          <p class="note-text">
+            ¡Cuentas con <strong class="money-inline">${{ c.balanceProduct }}</strong> para tu
+            objetivo!
+            <ng-container *ngIf="c.detaildProduct">{{ c.detaildProduct }}</ng-container>
+          </p>
+        </div>
+      </article>
+
+
+      <article class="card promo">
+      <img src="backgrounds/tarjeta.png" alt="Productos recomendados" class="promo-img"/>
+      <button class="btn-cta" (click)="togglePromo()">EXPLORA AHORA</button>
+      </article>
+    </div>
   </div>
 </div>
+<section class="reco-panel" *ngIf="promoOpen">
+  <button class="close" (click)="togglePromo()" aria-label="Cerrar">✖</button>
+
+  <div class="badge-wrap">
+    <span class="medal">★</span>
+    <span class="badge">Productos recomendados</span>
+  </div>
+
+  <div class="reco-grid">
+    <div class="left">
+      <h2>
+        ¡Te recomendamos estos <br />
+        productos para <span class="hl">Conocer sobrino!</span>
+      </h2>
+    </div>
+
+    <article class="featured-card">
+      <div class="media">
+        <img src="backgrounds/dogy.png" alt="Producto recomendado" />
+        <span class="pill">Ahorro e inversión</span>
+        <button class="fav" aria-label="Guardar favorito">❤</button>
+      </div>
+
+      <div class="info">
+        <h3>¡Fondo de inversión Colectiva,<br/> la acción para potenciar tu<br/> capital y hacer real tu<br/> objetivo!</h3>
+        <a class="more" href="#">Conoce más</a>
+
+        <ul class="bullets">
+          <li>
+            <img src="logo/world.svg" alt="" />
+            Rentabilidades mínimas del <b>3% anuales</b>
+          </li>
+          <li>
+            <img src="logo/profile.svg" alt="" />
+            <b>4.000 clientes</b> confían en este producto
+          </li>
+        </ul>
+      </div>
+    </article>
+  </div>
+
+  <button class="next" aria-label="Siguiente">›</button>
+</section>
+

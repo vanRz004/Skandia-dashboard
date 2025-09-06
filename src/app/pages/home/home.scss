@@ -4,6 +4,10 @@
   width: 100%;
 }
 
+h3 span {
+  color: #FE9200;
+}
+
 .home-wrapper {
   min-height: 100%;
   min-width: 100%;
@@ -17,6 +21,7 @@
 }
 
 .hero {
+  position: relative;                         
   background: url('/backgrounds/NOCHE.jpg') no-repeat center top;
   background-size: cover;
   background-attachment: fixed;
@@ -27,8 +32,39 @@
 }
 
 .hero-content {
-  display: column;
+  display: flex;                             
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+}
+
+.goal-card {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 50%);
+  z-index: 2;                
+}
+
+
+.main-content {
+  padding: 96px 24px 24px;                 
+  background: #f7f7f900;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: white;
+}
+
+.goal-card app-goal-card {
+  display: block;
+  box-shadow: 0 12px 30px rgba(0,0,0,.12);
+  border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+  .home-content { margin-left: 0; }
+  .hero { height: 280px; }
+  .main-content { padding-top: 80px; }
 }
